@@ -15,11 +15,11 @@ const SectionSchema = new mongoose.Schema(
         "Miscellania",
       ],
     },
-    activities: [
+    hobbies: [
       {
         type: mongoose.Schema.Types.ObjectId,
         required: false,
-        ref: "Activity",
+        ref: "Hobby",
       },
     ],
   },

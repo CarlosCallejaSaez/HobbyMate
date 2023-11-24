@@ -11,7 +11,7 @@ const FeedSchema = new mongoose.Schema(
       ref: "User",
       required: false,
     },
-    idActivity: {
+    idHobby: {
       type: mongoose.Schema.Types.ObjectId,
       ref: "Hobby",
       required: false,

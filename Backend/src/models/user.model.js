@@ -37,11 +37,11 @@ const UserSchema = new mongoose.Schema(
     favorites: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Activity",
+        ref: "Hobby",
         required: false,
       },
     ],
-    createdActivities: [
+    createdHobbies: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Hobby",

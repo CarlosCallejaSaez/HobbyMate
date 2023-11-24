@@ -38,11 +38,11 @@ const getHobbyByID = async (req, res, next) => {
       .populate("comments feeds createdBy favorites")
       .populate({
         path: "feeds",
-        populate: "idUser idActivity",
+        populate: "idUser idHobby",
       })
       .populate({
         path: "comments",
-        populate: "idUser idActivity",
+        populate: "idUser idHobby",
       });
 
     hobby.mediaStars = 0;
@@ -100,7 +100,7 @@ const chooseFavorite = async (req, res, next) => {
     if (!hobby.favorites.includes(user._id)) {
       await hobby.updateOne({ $push: { favorites: user._id } });
       await user.updateOne({ $push: { favorites: hobby._id } });
-      res.status(200).json("The activity has been liked");
+      res.status(200).json("The hobby has been liked");
     } else {
       await hobby.updateOne({ $pull: { favorites: user._id } });
       await user.updateOne({ $pull: { favorites: hobby._id } });
